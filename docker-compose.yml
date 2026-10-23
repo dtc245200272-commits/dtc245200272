@@ -19,8 +19,11 @@ services:
       - internal_network
 
   forum_app:
-    build: ./app
+    build:
+      context: ./app
     container_name: forum_app
+    ports:
+      - "5000:3000"
     environment:
       DB_PASSWORD: ${DB_PASSWORD:-MatKhauManh@123!}
     networks:
